@@ -13,5 +13,5 @@ function getComputerChoice(randomNumber) {
 }
 
 let randomNumber=Math.floor(Math.random()*3)+1;
-
+let playerSelection = prompt("Pick one: rock, paper or scissors? ")
 let computerSelection=getComputerChoice(randomNumber);
