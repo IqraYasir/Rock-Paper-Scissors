@@ -1,17 +1,17 @@
 function getComputerChoice(randomNumber) {
     switch (randomNumber) {
         case 1:
-            return "Rock";
+            return "rock";
             break;
         case 2:
-            return "Paper";
+            return "paper";
             break;
         case 3:
-            return "Scissors";
+            return "scissors";
             break;
     }
 }
 
 let randomNumber=Math.floor(Math.random()*3)+1;
-let computerChoice=getComputerChoice(randomNumber);
-console.log(computerChoice)
+
+let computerSelection=getComputerChoice(randomNumber);
