@@ -48,20 +48,20 @@ function game() {
     let computerSelection = getComputerChoice(randomNumber);
     let round_status=playRound(playerSelection,computerSelection);
     console.log(round_status)
-    let round_status_slice=round_status.slice(0,5);
-    return round_status_slice
+    let status_slice=round_status.slice(0,5);
+    return status_slice
     }
 
 //main program
 let player_score = 0
 let computer_score = 0
 for (let roundNumber = 0; roundNumber<5; roundNumber++) {
-    game();
-    if (round_status_slice==="You l") {
+    status_slice=game();
+    if (status_slice==="You l") {
         computer_score++
         console.log("Your opponent gains a point")
     }
-    else if (round_status_slice==="You w") {
+    else if (status_slice==="You w") {
         player_score++
         console.log("You gain a point")
     } else {
