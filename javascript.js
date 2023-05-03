@@ -41,6 +41,12 @@ function playRound(playerSelection,computerSelection) {
     }
 } 
 
-let randomNumber=Math.floor(Math.random()*3)+1;
-let playerSelection = prompt("Pick one: rock, paper or scissors? ");
-let computerSelection=getComputerChoice(randomNumber);
+function game() {
+    let randomNumber=Math.floor(Math.random()*3)+1;
+    let playerSelection = prompt("Pick one: rock, paper or scissors? ");
+    let computerSelection=getComputerChoice(randomNumber);
+    let round_status=playRound(playerSelection,computerSelection);
+    let round_status_slice=round_status.slice(0,5);
+    console.log(round_status_slice);
+}
+game();
