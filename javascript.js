@@ -49,13 +49,25 @@ function game() {
     let round_status=playRound(playerSelection,computerSelection);
     console.log(round_status)
     let round_status_slice=round_status.slice(0,5);
-}
+    return round_status_slice
+    }
 
 //main program
 let player_score = 0
 let computer_score = 0
 for (let roundNumber = 0; roundNumber<5; roundNumber++) {
-    game(player_score,computer_score);
+    game();
+    if (round_status_slice==="You l") {
+        computer_score++
+        console.log("Your opponent gains a point")
+    }
+    else if (round_status_slice==="You w") {
+        player_score++
+        console.log("You gain a point")
+    } else {
+        roundNumber-=1
+        console.log("No one gains a point")
+    }
 }
 let result = (player_score<computer_score)
  ? "You lost! Try again?" 
