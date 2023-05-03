@@ -1,3 +1,4 @@
+//functions
 function getComputerChoice(randomNumber) {
     switch (randomNumber) {
         case 1:
@@ -13,7 +14,7 @@ function getComputerChoice(randomNumber) {
 }
 
 function playRound(playerSelection,computerSelection) {
-    let lowerCase=playerSelection.toLowerCase();
+    let lowerCase = playerSelection.toLowerCase();
     if (lowerCase==="rock") {
         if (computerSelection==="rock") {
             return "We tie! Rock equals rock";
@@ -44,9 +45,19 @@ function playRound(playerSelection,computerSelection) {
 function game() {
     let randomNumber=Math.floor(Math.random()*3)+1;
     let playerSelection = prompt("Pick one: rock, paper or scissors? ");
-    let computerSelection=getComputerChoice(randomNumber);
+    let computerSelection = getComputerChoice(randomNumber);
     let round_status=playRound(playerSelection,computerSelection);
+    console.log(round_status)
     let round_status_slice=round_status.slice(0,5);
-    console.log(round_status_slice);
 }
-game();
+
+//main program
+let player_score = 0
+let computer_score = 0
+for (let roundNumber = 0; roundNumber<5; roundNumber++) {
+    game(player_score,computer_score);
+}
+let result = (player_score<computer_score)
+ ? "You lost! Try again?" 
+ : "You won! Rematch?"
+console.log(result)
