@@ -20,7 +20,15 @@ function playRound(playerSelection,computerSelection) {
         } else if (computerSelection==="paper") {
             return "You lose! Paper beats rock";
         } else {
-            return "You win! Rock beats scissor"
+            return "You win! Rock beats scissors"
+        }
+    } else if (lowerCase==="paper") {
+        if (computerSelection==="paper") {
+            return "We tie! Paper equals paper";
+        } else if (computerSelection==="scissors") {
+            return "You lose! Scissors beats paper";
+        } else {
+            return "You win! Paper beats rock"
         }
     }
 } 
