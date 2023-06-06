@@ -17,27 +17,36 @@ function playRound(playerSelection,computerSelection) {
     let lowerCase = playerSelection.toLowerCase();
     if (lowerCase==="rock") {
         if (computerSelection==="rock") {
-            return "We tie! Rock equals rock";
+            console.log("We tie! Rock equals rock");
+            return 2;
         } else if (computerSelection==="paper") {
-            return "You lose! Paper beats rock";
+            console.log("You lose! Paper beats rock");
+            return 0;
         } else {
-            return "You win! Rock beats scissors";
+            console.log("You win! Rock beats scissors");
+            return 1;
         }
     } else if (lowerCase==="paper") {
         if (computerSelection==="paper") {
-            return "We tie! Paper equals paper";
+            console.log("We tie! Paper equals paper");
+            return 2;
         } else if (computerSelection==="scissors") {
-            return "You lose! Scissors beats paper";
+            console.log("You lose! Scissors beats paper");
+            return 0;
         } else {
-            return "You win! Paper beats rock";
+            console.log("You win! Paper beats rock");
+            return 1;
         }
     } else {
         if (computerSelection==="scissors") {
-            return "We tie! Scissors equals scissors";
+            console.log("We tie! Scissors equals scissors");
+            return 2;
         } else if (computerSelection==="rock") {
-            return "You lose! Rock beats scissors";
+            console.log("You lose! Rock beats scissors");
+            return 0;
         } else {
-            return "You win! Scissors beats paper"
+            console.log("You win! Scissors beats paper");
+            return 1;
         }
     }
 } 
@@ -46,29 +55,27 @@ function game() {
     let randomNumber=Math.floor(Math.random()*3)+1;
     let playerSelection = prompt("Pick one: rock, paper or scissors? ");
     let computerSelection = getComputerChoice(randomNumber);
-    let round_status=playRound(playerSelection,computerSelection);
-    console.log(round_status)
-    let status_slice=round_status.slice(0,5);
-    return status_slice
-    }
+    let winningNumber=playRound(playerSelection,computerSelection);
+    return winningNumber;
+}
 
 //main program
 let player_score = 0
 let computer_score = 0
-for (let roundNumber = 0; roundNumber<5; roundNumber++) {
-    status_slice=game();
-    if (status_slice==="You l") {
-        computer_score++
-        console.log("Your opponent gains a point")
-    }
-    else if (status_slice==="You w") {
-        player_score++
-        console.log("You gain a point")
-    } else {
-        roundNumber-=1
-        console.log("No one gains a point")
-    }
+
+winningNumber=game();
+if (winningNumber===0) {
+    computer_score++
+    console.log("Your opponent gains a point")
 }
+else if (winningNumber===1) {
+    player_score++
+    console.log("You gain a point")
+} else {
+    roundNumber-=1
+    console.log("No one gains a point")
+}
+
 let result = (player_score<computer_score)
  ? "You lost! Try again?" 
  : "You won! Rematch?"
