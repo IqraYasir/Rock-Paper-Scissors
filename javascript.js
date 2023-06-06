@@ -72,7 +72,6 @@ else if (winningNumber===1) {
     player_score++
     console.log("You gain a point")
 } else {
-    roundNumber-=1
     console.log("No one gains a point")
 }
 
