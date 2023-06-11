@@ -52,9 +52,9 @@ function playRound(playerSelection,computerSelection) {
     }
 } 
 
-function game() {
-    let randomNumber=Math.floor(Math.random()*3)+1;
-    let playerSelection = 
+function game(button) {
+    let randomNumber = Math.floor(Math.random()*3)+1;
+    let playerSelection = button.getAttribute('id');
     let computerSelection = getComputerChoice(randomNumber);
     let winningNumber=playRound(playerSelection,computerSelection);
     return winningNumber;
@@ -63,6 +63,10 @@ function game() {
 //main program
 let player_score = 0;
 let computer_score = 0;
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', game(button));
+});
 
 winningNumber=game();
 const point = document.createElement('div');
