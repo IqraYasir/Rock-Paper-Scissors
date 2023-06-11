@@ -56,15 +56,14 @@ function game(e) {
     const button = e.target;
     let randomNumber = Math.floor(Math.random()*3)+1;
     let playerSelection = button.getAttribute('id');
-    console.log(playerSelection);
     let computerSelection = getComputerChoice(randomNumber);
     let winningNumber=playRound(playerSelection,computerSelection);
     return winningNumber;
 }
 
 //main program
-let player_score = 0;
-let computer_score = 0;
+let playerScore = 0;
+let computerScore = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', game);
@@ -73,17 +72,17 @@ buttons.forEach((button) => {
 winningNumber=game();
 const point = document.createElement('div');
 if (winningNumber===0) {
-    computer_score++
+    ++computerScore;
     point.textContent ="Your opponent gains a point\n";
 }
 else if (winningNumber===1) {
-    player_score++
+    ++playerScore;
     point.textContent ="You gain a point\n";
 } else {
-    point.textContent ="No one gains a point\n"
+    point.textContent ="No one gains a point\n";
 }
 
-let result = (player_score<computer_score)
+let result = (playerScore<computerScore)
  ? "You lost! Try again?" 
  : "You won! Rematch?"
 winner.textContent = `${result}`
