@@ -52,9 +52,11 @@ function playRound(playerSelection,computerSelection) {
     }
 } 
 
-function game(button) {
+function game(e) {
+    const button = e.target;
     let randomNumber = Math.floor(Math.random()*3)+1;
     let playerSelection = button.getAttribute('id');
+    console.log(playerSelection);
     let computerSelection = getComputerChoice(randomNumber);
     let winningNumber=playRound(playerSelection,computerSelection);
     return winningNumber;
@@ -65,7 +67,7 @@ let player_score = 0;
 let computer_score = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
-    button.addEventListener('click', game(button));
+    button.addEventListener('click', game);
 });
 
 winningNumber=game();
