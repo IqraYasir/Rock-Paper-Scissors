@@ -114,7 +114,7 @@ buttons.forEach((button) => {
             } 
             playerDisplay.textContent(`Player score: ${playerScore}`);
             computerDisplay.textContent(`Computer score: ${computerScore}\n`);
-            });
+        });
     }
     container.appendChild(winner)
 });
